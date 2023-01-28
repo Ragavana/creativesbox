@@ -1,44 +1,83 @@
 import { useRouter } from "next/router";
 import { getAllProductsDb, getProductsDb } from "../api/products";
-import ProductCard from "@/components/productcard";
+import { ColorRing } from "react-loader-spinner";
+import Layout from "../layout";
 import Image from "next/image";
 
 function Product({ product, isSuccess }) {
   const router = useRouter();
-
   if (router.isFallback) {
-    return <div>Loading...</div>;
+    return (
+      <Layout>
+        <>
+          <div className="flex items-center justify-center">
+            <ColorRing
+              visible={true}
+              height="80"
+              width="80"
+              ariaLabel="blocks-loading"
+              wrapperStyle={{}}
+              wrapperClass="blocks-wrapper"
+              colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+            />
+          </div>
+          <h1 className="text-center">Product not found</h1>
+        </>
+      </Layout>
+    );
   }
   return (
-    <>
-      {isSuccess && product.length >= 1 ? (
-        <>
+    <Layout>
+      <>
+        {isSuccess && product.length >= 1 ? (
           <>
-            <div className="flex flex-col text-center space-y-2 mx-auto font-roboto text-zinc-700 md:flex-row md:space-x-5">
-              <h1 className="font-bold">{product[0].slug}</h1>
-              <h2 className="font-bold">{product[0].title}</h2>
-              <p>{product[0].description}</p>
-              <Image
-                src={product[0].thumbnail}
-                alt=""
-                placeholder="./images/image1.jpg"
-                width="300"
-                height="300"
-                style={{
-                  height: "50% !important",
-                  width: "200%",
-                  padding: "1rem",
-                }}
-              />
-            </div>
+            <>
+              <div className="flex flex-col text-center space-y-2 mx-auto font-roboto text-zinc-700 md:flex-row md:space-x-5">
+                <h1 className="font-bold">{product[0].slug}</h1>
+                <h2 className="font-bold">{product[0].title}</h2>
+                <p>{product[0].description}</p>
+                <Image
+                  src={product[0].thumbnail}
+                  alt=""
+                  placeholder="./images/image1.jpg"
+                  width="300"
+                  height="300"
+                  style={{
+                    height: "50% !important",
+                    width: "200%",
+                    padding: "1rem",
+                  }}
+                />
+              </div>
+            </>
           </>
-        </>
-      ) : (
-        <>
-          <h1>Something Went Wrong</h1>
-        </>
-      )}
-    </>
+        ) : (
+          <>
+            {" "}
+            <>
+              <div className="flex items-center justify-center">
+                <ColorRing
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="blocks-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="blocks-wrapper"
+                  colors={[
+                    "#e15b64",
+                    "#f47e60",
+                    "#f8b26a",
+                    "#abbd81",
+                    "#849b87",
+                  ]}
+                />
+              </div>
+            </>
+            <h1 className="text-center">Product not found</h1>
+          </>
+        )}
+      </>
+    </Layout>
   );
 }
 
@@ -55,7 +94,7 @@ export async function getStaticProps(context) {
       product: response["message"],
       isSuccess: response["success"],
     },
-    revalidate: 43200,
+    //revalidate: 43200,
   };
 }
 
@@ -70,10 +109,10 @@ export async function getStaticPaths() {
   });
   console.log(paths);
 
-    // return {
-    //   paths: [{ params: { productId: "83869a5b-dcbc-47dc-80c3-3d9028f21ce9" } }],
-    //   fallback: true,
-    // };
+  // return {
+  //   paths: [{ params: { productId: "83869a5b-dcbc-47dc-80c3-3d9028f21ce9" } }],
+  //   fallback: true,
+  // };
 
   return {
     paths: paths,
