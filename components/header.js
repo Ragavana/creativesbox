@@ -12,7 +12,7 @@ function Header() {
           {/* left-side view */}
           <div className="p-2 flex items-center space-x-6 relative">
             <img className="w-25 h-10" src="/images/Logo.png" />
-            <div className="hidden font-alata md:flex md:space-x-6">
+            <div className="hidden font-roboto md:flex md:space-x-6">
               <Link legacyBehavior href="">
                 <a className="text-sm  text-zinc-300 hover:text-zinc-800 group">
                   Browse
@@ -265,7 +265,7 @@ function Header() {
         {navbar ? (
           <div
             id="menu"
-            class="absolute  top-0 bottom-0 left-0 flex font-semibold flex-col font-alata z-50
+            class="absolute  top-0 bottom-0 left-0 flex font-semibold flex-col font-roboto z-50
               self-end w-full space-y-3 divide-y mt-16
               text-lg text-zinc-300  md:hidden group-hover:transition-all duration-2000 capitalize"
           >
@@ -306,24 +306,27 @@ function Header() {
                 <p className="text-xs text-zinc-200 text-center">
                   @CreativesBox, INC
                 </p>
-                <div className="p-10 flex justify-around pb-20">
+                <div className="p-10 flex justify-around pb-80">
                   <Image
                     src={`/images/Favicon.png`}
-                    width={`20`}
-                    height={`20`}
-                  ></Image>
-                  <Image
-                    src={`/images/favicon.ico`}
+                    alt=""
                     width={`20`}
                     height={`20`}
                   ></Image>
                   <Image
                     src={`/images/Favicon.png`}
+                    alt=""
                     width={`20`}
                     height={`20`}
                   ></Image>
                   <Image
-                    src={`/images/favicon.ico`}
+                    src={`/images/Favicon.png`}
+                    alt=""
+                    width={`20`}
+                    height={`20`}
+                  ></Image>
+                  <Image
+                    src={`/images/Favicon.png`}
                     width={`20`}
                     height={`20`}
                   ></Image>

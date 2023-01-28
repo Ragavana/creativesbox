@@ -13,8 +13,8 @@ export default function Home({ isSuccess, products }) {
     <Layout>
       <section id="products">
         <div
-          class="grid grid-cols-1 px-4 space-y-10 bg-white
-        md:space-y-0 md:space-x-0 md:m-2 md:grid-cols-3"
+          class="grid grid-cols-1 space-y-7 bg-white
+        md:space-y-0 md:space-x-0 md:grid-cols-3"
         >
           {isSuccess ? (
             <>
@@ -28,7 +28,7 @@ export default function Home({ isSuccess, products }) {
             </>
           ) : (
             <>
-              <h1 className="text-xl font-alata text-center">
+              <h1 className="text-xl font-roboto text-center">
                 Something Went Wrong
               </h1>
             </>
@@ -52,6 +52,6 @@ export async function getStaticProps() {
       products: response["message"],
       isSuccess: response["success"],
     },
-    revalidate: 10, // In seconds
+    revalidate: 43200, // In seconds
   };
 }

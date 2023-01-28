@@ -14,7 +14,7 @@ function Product({ product, isSuccess }) {
       {isSuccess && product.length >= 1 ? (
         <>
           <>
-            <div className="flex flex-col text-center space-y-2 mx-auto font-alata text-zinc-700 md:flex-row md:space-x-5">
+            <div className="flex flex-col text-center space-y-2 mx-auto font-roboto text-zinc-700 md:flex-row md:space-x-5">
               <h1 className="font-bold">{product[0].slug}</h1>
               <h2 className="font-bold">{product[0].title}</h2>
               <p>{product[0].description}</p>
@@ -55,7 +55,7 @@ export async function getStaticProps(context) {
       product: response["message"],
       isSuccess: response["success"],
     },
-    revalidate: 10,
+    revalidate: 43200,
   };
 }
 

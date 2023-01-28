@@ -2,17 +2,17 @@ import ProductCard from "@/components/productcard";
 import Image from "next/image";
 import { getAllProductsDb } from "../api/products";
 
-function Product({isSuccess, products}) {
+function Product({ isSuccess, products }) {
   return (
     <>
       <section id="products">
         <div
-          class="grid grid-cols-1 px-4 space-y-10 bg-white
-        md:space-y-0 md:space-x-0 md:m-2 md:grid-cols-3"
+          class="grid grid-cols-1  space-y-10 bg-white
+        md:space-y-0 md:space-x-0 md:m-2 md:grid-cols-2 lg:grid-cols-3 lg:space-y-0 lg:space-x-0 lg:m-2"
         >
           {isSuccess ? (
             <>
-             {products.map((product) => {
+              {products.map((product) => {
                 return (
                   <>
                     <ProductCard product={product} />
@@ -21,9 +21,9 @@ function Product({isSuccess, products}) {
               })}
             </>
           ) : (
-           <>
-           <h1>Something Went Wrong</h1>
-           </>
+            <>
+              <h1>Something Went Wrong</h1>
+            </>
           )}
         </div>
       </section>
@@ -45,6 +45,6 @@ export async function getStaticProps() {
       products: response["message"],
       isSuccess: response["success"],
     },
-    revalidate: 10, // In seconds
+    revalidate: 43200, // In seconds
   };
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 function ProductCard({ product }) {
   return (
     <>
-      <div class="item-container group md:p-4">
+      <div class="item-container group mr-4 md:p-4 ">
         <Link href={`product/${product.slug}`}>
           <div class="item rounded-lg shadow-lg bg-white duration-500 group-hover:scale-105 group-hover:shadow-xl">
             <Image
@@ -18,15 +18,15 @@ function ProductCard({ product }) {
 
             <div className="space-y-2 p-4 flex justify-between items-center">
               <div className="space-y-4">
-                <h4 className="font-alata font-medium">{product.title}</h4>
+                <h4 className="font-medium font-roboto">{product.title}</h4>
                 <p className="text-xs font-light">
                   {" "}
                   {dateFormat(product.data, "fullDate")}
                 </p>
               </div>
               <button
-                className="font-alata rounded-lg drop-shadow-xl
-                 bg-green-300 px-3 py-2 text-white invisible duration-200 group-hover:visible group-hover:scale-105"
+                className="font-roboto rounded-lg drop-shadow-xl
+                 bg-green-300 px-2 py-2 text-white invisible duration-200 group-hover:visible group-hover:scale-105"
               >
                 Download
               </button>

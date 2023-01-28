@@ -14,8 +14,9 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["Josefin Sans", "sans-serif"],
+        sans: ["Josefin Sans","Roboto", "sans-serif"],
         alata: ["Alata"],
+        roboto: ["Roboto"]
       },
       letterSpacing: {
         widest: ".3em",
