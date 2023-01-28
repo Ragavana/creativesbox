@@ -1,16 +1,10 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import Layout from "./layout";
-import Product from "./product";
-import { getAllProductsDb } from "./api/products";
 import ProductCard from "@/components/productcard";
+import Image from "next/image";
+import { getAllProductsDb } from "../api/products";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home({ isSuccess, products }) {
+function Product({isSuccess, products}) {
   return (
-    <Layout>
+    <>
       <section id="products">
         <div
           class="grid grid-cols-1 px-4 space-y-10 bg-white
@@ -18,7 +12,7 @@ export default function Home({ isSuccess, products }) {
         >
           {isSuccess ? (
             <>
-              {products.map((product) => {
+             {products.map((product) => {
                 return (
                   <>
                     <ProductCard product={product} />
@@ -27,23 +21,22 @@ export default function Home({ isSuccess, products }) {
               })}
             </>
           ) : (
-            <>
-              <h1 className="text-xl font-alata text-center">
-                Something Went Wrong
-              </h1>
-            </>
+           <>
+           <h1>Something Went Wrong</h1>
+           </>
           )}
         </div>
       </section>
-    </Layout>
+    </>
   );
 }
+
+export default Product;
 
 export async function getStaticProps() {
   // let dev = process.env.NODE_ENV !== "production";
   // let { DEV_URL, PROD_URL } = process.env;
 
-  console.log("regenerated");
   let response = await getAllProductsDb();
   console.log(response);
 

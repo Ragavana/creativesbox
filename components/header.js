@@ -4,11 +4,11 @@ import Script from "next/script";
 import { useState } from "react";
 
 function Header() {
-  const [navbar, setNavbar] = useState(false);  
+  const [navbar, setNavbar] = useState(false);
   return (
     <>
-      <header className="sticky top-0 z-50">
-        <div className="flex h-50 justify-between bg-white shadow-md shadow-slate-100 font-bold">
+      <header className="sticky top-0 z-40">
+        <div className="flex h-16 justify-between bg-white shadow-md shadow-slate-100 font-bold">
           {/* left-side view */}
           <div className="p-2 flex items-center space-x-6 relative">
             <img className="w-25 h-10" src="/images/Logo.png" />
@@ -265,67 +265,69 @@ function Header() {
         {navbar ? (
           <div
             id="menu"
-            class="absolute  top-0 bottom-0 left-0 flex font-semibold flex-col font-alata
-              self-end w-full mt-16 space-y-3 bg-white  divide-y 
+            class="absolute  top-0 bottom-0 left-0 flex font-semibold flex-col font-alata z-50
+              self-end w-full space-y-3 divide-y mt-16
               text-lg text-zinc-300  md:hidden group-hover:transition-all duration-2000 capitalize"
           >
-            <div className="flex flex-col p-14 pb-6 space-y-6 items-center text-center capitalize">
-              <Link legacyBehavior href="">
-                <a className="text-sm  text-zinc-500 hover:text-zinc-500 group">
-                  Design
-                </a>
-              </Link>
-              <Link legacyBehavior href="">
-                <a className="text-sm  text-zinc-300 hover:text-zinc-800 group">
-                  About
-                </a>
-              </Link>
-              <Link legacyBehavior href="">
-                <a className="text-sm  text-zinc-300 hover:text-zinc-800 group">
-                  License
-                </a>
-              </Link>
-              <Link legacyBehavior href="">
-                <a className="text-sm  text-zinc-300 hover:text-zinc-800 group">
-                  Contact
-                </a>
-              </Link>
-              <Link legacyBehavior href="">
-                <a className="text-sm  text-zinc-300 hover:text-zinc-800 group">
-                  Terms & Conditions
-                </a>
-              </Link>
-              <Link legacyBehavior href="">
-                <a className="text-sm  text-zinc-300 hover:text-zinc-800 group">
-                  Privacy
-                </a>
-              </Link>
-            </div>
-            <div className="flex flex-col justify-center p-10">
-              <p className="text-xs text-zinc-200 text-center">
-                @CreativesBox, INC
-              </p>
-              <div className="p-10 flex justify-around">
-                <Image
-                  src={`/images/Favicon.png`}
-                  width={`20`}
-                  height={`20`}
-                ></Image>
-                <Image
-                  src={`/images/favicon.ico`}
-                  width={`20`}
-                  height={`20`}
-                ></Image>
-                <Image
-                  src={`/images/Favicon.png`}
-                  width={`20`}
-                  height={`20`}
-                ></Image>
-                <Image
-                  src={`/images/favicon.ico`}
-                  width={`20`}
-                  height={`20`}
-                ></Image>
+            <div className="bg-white">
+              <div className="flex flex-col p-14 pb-6 space-y-6 items-center text-center capitaliz">
+                <Link legacyBehavior href="">
+                  <a className="text-sm  text-zinc-500 hover:text-zinc-500 group">
+                    Design
+                  </a>
+                </Link>
+                <Link legacyBehavior href="">
+                  <a className="text-sm  text-zinc-300 hover:text-zinc-800 group">
+                    About
+                  </a>
+                </Link>
+                <Link legacyBehavior href="">
+                  <a className="text-sm  text-zinc-300 hover:text-zinc-800 group">
+                    License
+                  </a>
+                </Link>
+                <Link legacyBehavior href="">
+                  <a className="text-sm  text-zinc-300 hover:text-zinc-800 group">
+                    Contact
+                  </a>
+                </Link>
+                <Link legacyBehavior href="">
+                  <a className="text-sm  text-zinc-300 hover:text-zinc-800 group">
+                    Terms & Conditions
+                  </a>
+                </Link>
+                <Link legacyBehavior href="">
+                  <a className="text-sm  text-zinc-300 hover:text-zinc-800 group">
+                    Privacy
+                  </a>
+                </Link>
+              </div>
+              <div className="flex flex-col justify-center p-10">
+                <p className="text-xs text-zinc-200 text-center">
+                  @CreativesBox, INC
+                </p>
+                <div className="p-10 flex justify-around pb-20">
+                  <Image
+                    src={`/images/Favicon.png`}
+                    width={`20`}
+                    height={`20`}
+                  ></Image>
+                  <Image
+                    src={`/images/favicon.ico`}
+                    width={`20`}
+                    height={`20`}
+                  ></Image>
+                  <Image
+                    src={`/images/Favicon.png`}
+                    width={`20`}
+                    height={`20`}
+                  ></Image>
+                  <Image
+                    src={`/images/favicon.ico`}
+                    width={`20`}
+                    height={`20`}
+                  ></Image>
+                </div>
               </div>
             </div>
           </div>
